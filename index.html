@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI计算器</title>
+</head>
+<body>
+    <h1>BMI计算器</h1>
+    <div>
+        <label>身高(m)：</label>
+        <input type="number" id="height" step="0.01">
+    </div>
+    <div>
+        <label>体重(kg)：</label>
+        <input type="number" id="weight" step="0.1">
+    </div>
+    <button onclick="calcBmi()">计算BMI</button>
+    <div id="result"></div>
+    <script>
+        function calcBmi(){
+            let h = document.getElementById('height').value
+            let w = document.getElementById('weight').value
+            let bmi = w / (h * h)
+            let tip = ''
+            if(bmi < 18.5){
+                tip = '偏瘦'
+            }else if(bmi < 24){
+                tip = '正常'
+            }else if(bmi < 28){
+                tip = '超重'
+            }else{
+                tip = '肥胖'
+            }
+            document.getElementById('result').innerText = 'BMI：'+bmi.toFixed(2)+'，评价：'+tip
+        }
+    </script>
+</body>
+</html>
